@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    form {
+      width: 300px;
+      margin: 20px auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: -10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Form Validation Example</h2>
+
+  <form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <div id="nameError" class="error"></div>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <div id="emailError" class="error"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var nameInput = document.getElementById('name');
+      var emailInput = document.getElementById('email');
+      var nameError = document.getElementById('nameError');
+      var emailError = document.getElementById('emailError');
+
+      // Reset error messages
+      nameError.innerHTML = '';
+      emailError.innerHTML = '';
+
+      // Validate Name
+      if (nameInput.value.trim() === '') {
+        nameError.innerHTML = 'Name is required.';
+        return false;
+      }
+
+      // Validate Email
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        emailError.innerHTML = 'Invalid email address.';
+        return false;
+      }
+
+      // If validation passes, you can submit the form
+      alert('Form submitted successfully!');
+      return true;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function show()
+            {
+                var low=Number(document.getElementById("n1").value);
+                var high=Number(document.getElementById("n2").value);
+                var i,j;
+                for(i=low;i<=high;i++) 
+                    {
+                    var flag=0;
+                    for(j=2;j<i;j++) 
+                        {
+                        if(i%j==0) 
+                            {
+                            flag=1;
+                            break;
+                            }
+                        }
+                    if(flag==0&&i>1) 
+                    alert(i);
+                    }
+            }
+          
+        </script>
+        <style>
+            #n1,#n2{
+                background-color: aqua;
+            }
+            .button1{
+                background-color: brown;
+                color: aliceblue;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            Generate 'N' prime Number
+            <input type="text" id="n1">
+            <input type="text" id="n2">
+            <input type="button" class="button1" onclick="show()" value="Generate"><br>
+        </form>
+    </body>
+</html>

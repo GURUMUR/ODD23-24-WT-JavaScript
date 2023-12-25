@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function fact()
+            {
+                var num,i,fact=1;
+                num=Number(document.getElementById("num1").value);
+                for(i=1;i<=num;i++)
+                {
+                    fact=fact*i;
+                }
+                document.getElementById("result").value=fact;
+            }
+        </script>
+        <style>
+            .contain{
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+            #result1{
+                padding-top: 10px;
+            }
+            .button{
+                background-color: blue;
+                color: aliceblue;
+            }
+            h2{
+                color: rgb(185, 97, 39);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Calculate The Factorial</h2>
+        <form>
+            <div class="contain">
+            <div>Enter the number
+            <input type="text" id="num1"></div>
+            <div id="result1"><input type="button"class="button"  onclick="fact()" value="Factorial">
+            <input type="text" id="result"></div>
+            </div>
+        </form>
+    </body>
+</html>
